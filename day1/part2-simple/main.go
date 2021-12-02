@@ -9,7 +9,7 @@ var inputs = []int{141, 140, 160, 161, 162, 172, 178, 185, 184, 186, 187, 195, 2
 
 func main() {
 	var r = make(map[bool]int)
-	for i := 0; i < len(inputs) - 3; i++ {
+	for i := 0; i < len(inputs) - windowSize; i++ {
 		r[inputs[i] < inputs[i+windowSize]]++
 	}
 

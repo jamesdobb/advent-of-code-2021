@@ -8,7 +8,7 @@ import (
 const windowSize = 3
 type measurementWindow [windowSize]int
 
-func NewWindows(s *bufio.Scanner) (*measurementWindow, *measurementWindow ) {
+func NewWindows(s *bufio.Scanner) (*measurementWindow, *measurementWindow) {
 	w1 := &measurementWindow{}
 	w2 := &measurementWindow{}
 
