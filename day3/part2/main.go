@@ -41,7 +41,7 @@ func filter(i int, m string, s []string) []string {
 	var r []string
 
 	for _, v := range s {
-		if fmt.Sprintf("%c", v[i]) == m {
+		if string(v[i]) == m {
 			r = append(r, v)
 		}
 	}
