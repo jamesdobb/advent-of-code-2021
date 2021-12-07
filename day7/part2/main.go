@@ -30,9 +30,6 @@ func main()  {
 		for p, c := range crabShipPositions {
 			diff := math.Abs(float64(p - i))
 			fuelRequired[i] += int(diff * ((diff+1)/2)) * c
-			if fuelRequired[i] > minFuel && minFuel != -1 {
-				break
-			}
 		}
 		if fuelRequired[i] < minFuel || minFuel == -1 {
 			minFuel = fuelRequired[i]
