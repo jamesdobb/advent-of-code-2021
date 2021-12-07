@@ -21,7 +21,7 @@ func main()  {
 		fish = append(fish, v)
 	}
 
-	for d := 1; d <= 256; d++ {
+	for d := 1; d <= 80; d++ {
 		for i, f := range fish {
 			switch f {
 			case 0:
