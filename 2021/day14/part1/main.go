@@ -19,27 +19,22 @@ func main() {
 	for _, c := range input {elements[string(c)]++}
 	for i := 0; i < len(input)-1; i++ { pairs[string(input[i]) + string(input[i+1])]++ }
 
-	for i := 0; i < 100000; i++ { step() }
+	for i := 0; i < 1000000; i++ {
+		newPairs := make(map[string]uint64)
+		for k, i := range pairs {
+			if newChar, ok := rules[k]; ok {
+				newPairs[string(k[0]) + newChar]+=i
+				newPairs[newChar + string(k[1])]+=i
+				elements[newChar] += i
+			}
+		}
+		pairs = newPairs
+	}
 
-	max := uint64(0); min := uint64(0)
+	min, max := uint64(0), uint64(0)
 	for _, v := range elements {
-		if v > max { max = v }
-		if v < min || min == 0 { min = v }
+		if v > max { max = v }; if v < min || min == 0 { min = v }
 	}
 
 	fmt.Println(max - min)
-}
-
-func step() {
-	newPairs := make(map[string]uint64)
-
-	for k, i := range pairs {
-		if newChar, ok := rules[k]; ok {
-			newPairs[string(k[0]) + newChar]+=i
-			newPairs[newChar + string(k[1])]+=i
-			elements[newChar] += i
-		}
-	}
-
-	pairs = newPairs
 }
